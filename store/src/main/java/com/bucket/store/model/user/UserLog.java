@@ -12,7 +12,6 @@ public class UserLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_log_id")
     private Long id;
 
     @Column
@@ -25,7 +24,7 @@ public class UserLog {
     private User user;
 
     @Builder
-    public UserLog (Long id, String page, LocalDateTime accessTimestamp, User user) {
+    public UserLog(Long id, String page, LocalDateTime accessTimestamp, User user) {
         this.id = id;
         this.page = page;
         this.accessTimestamp = accessTimestamp;

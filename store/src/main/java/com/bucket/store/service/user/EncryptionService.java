@@ -49,7 +49,7 @@ public class EncryptionService {
             byte[] encryptedBytes = cipher.doFinal(data.getBytes(StandardCharsets.UTF_8));
             return Base64.getEncoder().encodeToString(encryptedBytes);
         } catch (Exception e) {
-            throw new CustomException(ErrorCode.EncryptionException);
+            throw new CustomException(ErrorCode.ENCRYPTION_ERROR);
         }
     }
 
@@ -61,7 +61,7 @@ public class EncryptionService {
             byte[] decodedBytes = Base64.getDecoder().decode(encryptedData);
             return new String(cipher.doFinal(decodedBytes), StandardCharsets.UTF_8);
         } catch (Exception e) {
-            throw new CustomException(ErrorCode.DecryptionException);
+            throw new CustomException(ErrorCode.DECRYPTION_ERROR);
         }
     }
 }

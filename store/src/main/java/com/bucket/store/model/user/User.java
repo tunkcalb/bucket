@@ -9,15 +9,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Entity
+@Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
+    @Id
     @Setter
-    @Column(name = "user_id")
+    @Column(name = "id")
     private String userId;
-    
+
     @Column(unique = true)
     private String username;
 
@@ -28,8 +30,9 @@ public class User {
     private String name;
 
     @Builder
-    public User(Long id, String username, String password, String name) {
-        this.id = id;
+    public User(Long id, String userId, String username, String password, String name) {
+//        this.id = id;
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.name = name;
