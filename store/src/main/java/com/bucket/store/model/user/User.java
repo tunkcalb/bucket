@@ -1,19 +1,26 @@
 package com.bucket.store.model.user;
 
-import com.bucket.store.type.UserType;
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
+@Getter
 @Entity
+@Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
-    @Column
+    @Id
+    @Setter
+    @Column(name = "id")
+    private String userId;
+
+    @Column(unique = true)
     private String username;
 
     @Column
@@ -22,15 +29,12 @@ public class User {
     @Column
     private String name;
 
-    @Column
-    private UserType type;
-
     @Builder
-    public User (Long id,String username, String password, String name) {
-        this.id = id;
+    public User(Long id, String userId, String username, String password, String name) {
+//        this.id = id;
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.name = name;
-        this.type = UserType.USER;
     }
 }

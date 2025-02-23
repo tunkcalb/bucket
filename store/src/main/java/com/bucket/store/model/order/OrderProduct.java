@@ -4,6 +4,7 @@ import com.bucket.store.model.product.Product;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 @Entity
@@ -19,6 +20,7 @@ public class OrderProduct {
     @ManyToOne
     private Product product;
 
+    @Setter
     @ManyToOne
     private Order order;
 
